@@ -43,11 +43,16 @@ extension MovieListViewModel {
         Webservice().load(resource: resource) { [weak self] result in
             switch result {
             case .success(let result):
-                if (result.response == "True" && result.search != nil){
-                    self?.movieViewModel = result.search!.map(MovieViewModel.init)
+                // Check if search results are available
+                if let searchResult = result.search {
+                    // Update the movieViewModel with the new search results
+                    self?.movieViewModel = searchResult.map(MovieViewModel.init)
                 }
-                else{
-                    self?.delegate?.showError(result.error ?? "")
+                // Check if there's an error message
+                else if let error = result.error {
+                    // Clear existing movies and show the error
+                    self?.movieViewModel.removeAll()
+                    self?.delegate?.showError(error)
                 }
             case .failure(let error):
                 print(error.localizedDescription)

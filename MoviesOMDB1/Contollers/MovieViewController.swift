@@ -87,7 +87,6 @@ extension MovieViewController: MovieListViewModelDelegate {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-            
             self.present(alertController, animated: true, completion: nil)
         }
     }
