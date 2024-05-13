@@ -7,9 +7,15 @@
 
 import Foundation
 
+// MARK: - Protocol
+protocol MovieListViewModelDelegate {
+    func showError(_ message: String)
+}
+
 // MARK: - Movie List View Model
 class MovieListViewModel {
-    
+    // MARK: - Delegate
+    var delegate: MovieListViewModelDelegate?
     // MARK: - Callbacks
     var onMoviesUpdated: (() -> Void)?
     
@@ -37,7 +43,12 @@ extension MovieListViewModel {
         Webservice().load(resource: resource) { [weak self] result in
             switch result {
             case .success(let result):
-                self?.movieViewModel = result.search.map(MovieViewModel.init)
+                if (result.response == "True" && result.search != nil){
+                    self?.movieViewModel = result.search!.map(MovieViewModel.init)
+                }
+                else{
+                    self?.delegate?.showError(result.error ?? "")
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }

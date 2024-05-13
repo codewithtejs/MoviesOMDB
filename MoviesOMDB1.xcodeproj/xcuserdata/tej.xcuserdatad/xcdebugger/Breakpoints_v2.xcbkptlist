@@ -7,48 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "686C6BC8-43C8-4859-BB21-30E651BE5E15"
-            shouldBeEnabled = "No"
+            uuid = "772EB3CD-547B-4705-A0AE-459B6CED9519"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MoviesOMDB1/ViewController.swift"
+            filePath = "MoviesOMDB1/Services/Webservice.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "fetchMovies(searchTerm:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "load(resource:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B2E637A0-126D-4892-9BB5-2977BA3FC821"
+            uuid = "3208D245-9480-418D-A820-ED97E21BB771"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesOMDB1/Services/Webservice.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "load(resource:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A6C232E-BC5F-47E7-817E-252EA59CBD8A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesOMDB1/Services/Webservice.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "load(resource:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16617B85-2033-48F3-B03A-3A8AF78FC1B1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MoviesOMDB1/ViewController.swift"
+            filePath = "MoviesOMDB1/Services/Webservice.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "fetchMovies(searchTerm:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F46DA6F8-2D72-43ED-BA9A-559F4818A11C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MoviesOMDB1/Utils/Constants.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "urlForMovieSearch(key:)"
+            landmarkName = "load(resource:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

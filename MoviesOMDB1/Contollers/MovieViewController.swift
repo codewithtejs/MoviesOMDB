@@ -7,7 +7,8 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: UIViewController{
+    
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -19,12 +20,13 @@ class MovieViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setDelegates()
         setupViewModel()
     }
     
     // MARK: - Private Methods
-    private func setupUI() {
+    private func setDelegates() {
+        movieListViewModel.delegate = self
         // Setup UI elements
     }
     
@@ -78,3 +80,16 @@ extension MovieViewController: MovieCellDelegate {
     }
     
 }
+// MARK: - MovieCellDelegate
+extension MovieViewController: MovieListViewModelDelegate {
+    
+    func showError(_ message: String) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+}
+
