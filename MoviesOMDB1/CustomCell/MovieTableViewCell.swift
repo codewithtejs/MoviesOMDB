@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var imgPoster: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
@@ -19,16 +19,7 @@ class MovieTableViewCell: UITableViewCell {
     func setupCell(_ vm : MovieViewModel){
         self.lblTitle.text = vm.title
         self.lblYear.text = vm.year
-        
-        if let url = URL(string: vm.poster) {
-//            DispatchQueue.global().async {
-//                if let data = try? Data(contentsOf: url) {
-//                    DispatchQueue.main.async {
-//                        cell.posterImageView.image = UIImage(data: data)
-//                    }
-//                }
-//            }
-        }
+        self.imgPoster.sd_setImage(with: URL(string: vm.poster))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

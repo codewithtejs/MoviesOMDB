@@ -19,6 +19,7 @@
 		B7F8E45F2BF29C880038968B /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8E45E2BF29C880038968B /* MovieViewModel.swift */; };
 		B7F8E4612BF2A3900038968B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8E4602BF2A3900038968B /* Constants.swift */; };
 		B7F8E4662BF2A5460038968B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8E4652BF2A5460038968B /* String+Extensions.swift */; };
+		B7F8E4692BF2ABCD0038968B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B7F8E4682BF2ABCD0038968B /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7F8E4692BF2ABCD0038968B /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +151,9 @@
 			dependencies = (
 			);
 			name = MoviesOMDB1;
+			packageProductDependencies = (
+				B7F8E4682BF2ABCD0038968B /* SDWebImage */,
+			);
 			productName = MoviesOMDB1;
 			productReference = B7F8E43E2BF1F0E20038968B /* MoviesOMDB1.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +182,9 @@
 				Base,
 			);
 			mainGroup = B7F8E4352BF1F0E20038968B;
+			packageReferences = (
+				B7F8E4672BF2ABCD0038968B /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = B7F8E43F2BF1F0E20038968B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -435,6 +443,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7F8E4672BF2ABCD0038968B /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7F8E4682BF2ABCD0038968B /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F8E4672BF2ABCD0038968B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7F8E4362BF1F0E20038968B /* Project object */;
 }
