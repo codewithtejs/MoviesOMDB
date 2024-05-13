@@ -7,18 +7,34 @@
 
 import Foundation
 
-struct MovieListViewModel{
-    var movieViewModel : [MovieViewModel]
-}
-extension MovieListViewModel{
-    init() {
-        self.movieViewModel = [MovieViewModel]()
+class MovieListViewModel{
+    
+    // MARK: - Callbacks
+    var onMoviesUpdated: (()->Void)?
+    
+    // MARK: - Variables
+    private(set) var movieViewModel: [MovieViewModel] = [] {
+        didSet {
+            self.onMoviesUpdated?()
+        }
     }
 }
 extension MovieListViewModel{
     
     func movieViewModel(at index:Int) -> MovieViewModel{
         return self.movieViewModel[index]
+    }
+    func fetchMovies(searchTerm: String) {
+        guard let movieUrl = Constants.Urls.urlForMovieSearch(key: searchTerm) else { return}
+        let resource = Resource<SearchResult>(url: movieUrl)
+        Webservice().load(resource: resource) {[weak self] result in
+            switch result{
+            case .success(let result):
+                self?.movieViewModel = result.search.map(MovieViewModel.init)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 

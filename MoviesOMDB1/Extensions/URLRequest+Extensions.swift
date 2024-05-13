@@ -6,3 +6,9 @@
 //
 
 import Foundation
+extension URLRequest {
+    
+    mutating func addValues() {
+            self.setValue(HTTP.Headers.Value.applicationJson.rawValue, forHTTPHeaderField: HTTP.Headers.Key.contentType.rawValue)
+    }
+}
