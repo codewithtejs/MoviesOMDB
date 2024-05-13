@@ -24,5 +24,8 @@ This project is an implementation of an app that can search the OMDB (Open Movie
 
 ## Note
 - This app is for demonstration purposes and does not include functionality for the button in the search results.
+## Tests
+The project includes XCTest cases to ensure the correctness of the `MovieListViewModel` class. These tests cover scenarios such as fetching movies, error handling, and accessing movie view models. You can run these tests to verify the functionality of the app.
 
-Feel free to contribute to this project by submitting pull requests or opening issues in the GitHub repository.
+To run the tests, open the project in Xcode and select the "Product" menu, then choose "Test" (or press `Command` + `U`). This will run all the XCTest cases in the project and display the results in the Xcode console.
+

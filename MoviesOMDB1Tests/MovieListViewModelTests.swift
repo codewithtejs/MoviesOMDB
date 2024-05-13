@@ -6,30 +6,32 @@
 //
 
 import XCTest
-
+@testable import MoviesOMDB1
 final class MovieListViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    var movieListViewModel: MovieListViewModel!
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        override func setUp() {
+            super.setUp()
+            movieListViewModel = MovieListViewModel()
+        }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+        override func tearDown() {
+            movieListViewModel = nil
+            super.tearDown()
+        }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        func testFetchMovies() {
+            // Ensure movieViewModel is initially empty
+            XCTAssertEqual(movieListViewModel.numberOfRows, 0)
+            // Fetch movies with a search term
+            movieListViewModel.fetchMovies(searchTerm: "Avengers")
+            movieListViewModel.onMoviesUpdated = { [weak self] in
+   
+                // After fetching, movieViewModel should be updated
+                XCTAssertEqual(self?.movieListViewModel.numberOfRows, 10) // Assuming 10 movies were fetched
+            }
+
+    
         }
     }
-
-}
