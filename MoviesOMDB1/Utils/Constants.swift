@@ -8,9 +8,10 @@
 import Foundation
 
 struct Constants{
-    struct url{
-        static func urlForMovieSearch(key: String) -> URL {
-            return URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city.escaped())&appid=ef0fd9866ca027e0dca474cee84c53be&units=imperial")!
+    struct Urls{
+        static func urlForMovieSearch(key: String) -> URL? {
+            let apiKey = "c16c712f"
+            return URL(string: "http://www.omdbapi.com/?s=\(key.escaped())&apikey=\(apiKey)")
         }
     }
 }

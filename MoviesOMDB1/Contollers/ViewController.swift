@@ -18,23 +18,14 @@ class ViewController: UIViewController {
         
     }
     
-
-    
-  
-    
     @objc func buttonTapped(_ sender: UIButton) {
         // Handle button tap
         print("Button tapped for movie: \(movieListViewModel.movieViewModel[sender.tag].title)")
     }
     
     func fetchMovies(searchTerm: String) {
-        let apiKey = "c16c712f"
-        let urlString = "http://www.omdbapi.com/?s=\(searchTerm)&apikey=\(apiKey)"
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-        let resource = Resource<SearchResult>(url: url)
+        guard let movieUrl = Constants.Urls.urlForMovieSearch(key: searchTerm) else { return}
+        let resource = Resource<SearchResult>(url: movieUrl)
         Webservice().load(resource: resource) { result in
             switch result{
             case .success(let result):
