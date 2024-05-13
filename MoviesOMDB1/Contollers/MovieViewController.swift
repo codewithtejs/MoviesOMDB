@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MovieViewController.swift
 //  MoviesOMDB1
 //
 //  Created by Gurtej Singh on 2024-05-13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         }
     }
 }
-extension ViewController: UITableViewDataSource, UITableViewDelegate{
+extension MovieViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
@@ -54,7 +54,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
 }
-extension ViewController: UISearchBarDelegate {
+extension MovieViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text else { return }
         fetchMovies(searchTerm: searchTerm)
