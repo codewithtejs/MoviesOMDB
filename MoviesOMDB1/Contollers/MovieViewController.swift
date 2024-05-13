@@ -8,20 +8,38 @@
 import UIKit
 
 class MovieViewController: UIViewController {
+    
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    // MARK: - Properties
     var movieListViewModel = MovieListViewModel()
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.movieListViewModel.onMoviesUpdated = { [weak self] in
+        setupUI()
+        setupViewModel()
+    }
+    
+    // MARK: - Private Methods
+    private func setupUI() {
+        // Setup UI elements
+    }
+    
+    private func setupViewModel() {
+        // Setup movieListViewModel
+        movieListViewModel.onMoviesUpdated = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
         }
     }
 }
-extension MovieViewController: UITableViewDataSource, UITableViewDelegate{
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
@@ -30,25 +48,33 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate{
         cell.btnAction.tag = indexPath.row
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieListViewModel.numberOfRows
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return movieListViewModel.numberOfSection
     }
     
 }
+
+// MARK: - UISearchBarDelegate
 extension MovieViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text else { return }
         movieListViewModel.fetchMovies(searchTerm: searchTerm)
         searchBar.resignFirstResponder()
     }
+    
 }
-extension MovieViewController : MovieCellDelegate{
+
+// MARK: - MovieCellDelegate
+extension MovieViewController: MovieCellDelegate {
+    
     func didPressButton(_ tag: Int) {
         print("Button tapped on movie: \(movieListViewModel.movieViewModel[tag].title)")
     }
+    
 }
-
-

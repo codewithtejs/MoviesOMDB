@@ -16,7 +16,6 @@ enum HTTP {
         
         enum Key: String {
             case contentType = "Content-Type"
-            case apiKey = "c16c712f"
         }
         
         enum Value: String {

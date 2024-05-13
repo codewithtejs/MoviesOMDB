@@ -6,8 +6,12 @@
 //
 
 import Foundation
+
 extension String {
     
+    // MARK: - Public Methods
+    
+    /// Returns an escaped version of the string suitable for use in a URL.
     func escaped() -> String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
